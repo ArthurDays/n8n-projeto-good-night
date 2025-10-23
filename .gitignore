@@ -10,8 +10,8 @@ credentials.json
 # Pasta de módulos do Node.js
 node_modules/
 
-# Logs de debug
+# Log files
 *.log
 
-#Ignore vscode AI rules
+#Instruções adicionais
 .github\instructions\codacy.instructions.md
