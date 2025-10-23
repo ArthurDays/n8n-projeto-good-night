@@ -1,0 +1,14 @@
+# Arquivos de banco de dados locais do n8n
+database.sqlite
+database.sqlite-journal
+
+# Arquivos de configuração e credenciais
+.env
+config.json
+credentials.json
+
+# Pasta de módulos do Node.js
+node_modules/
+
+# Logs de debug
+*.log

@@ -1,0 +1,616 @@
+{
+  "nodes": [
+    {
+      "parameters": {
+        "jsCode": "const formatos = ['texto', 'texto_e_imagem', 'audio'];\nconst indice = Math.floor(Math.random() * formatos.length);\nconst formato_escolhido = formatos[indice];\n\n$input.item.json.formato_escolhido = formato_escolhido;\n\nreturn $input.item;"
+      },
+      "id": "e0bd90ae-b1d7-4830-903d-1653b052c336",
+      "name": "Sorteia Formato (Mãe)",
+      "type": "n8n-nodes-base.code",
+      "position": [
+        -752,
+        -160
+      ],
+      "typeVersion": 2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.formato_escolhido }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "texto",
+                    "id": "ae0d74dc-166e-460c-af11-e05461d0dcf0"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "texto"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.formato_escolhido }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "texto_e_imagem",
+                    "id": "e0fc2438-613c-4a97-b3a9-0444c1fd1d12"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "texto_image"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.formato_escolhido }}",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "rightValue": "audio",
+                    "id": "10a0b01a-38dc-4877-a724-ed1817a56bae"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "audio"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d671e70f-b140-4d2c-b1e6-ff3bb54e2399",
+      "name": "Switch Formato (Mãe)",
+      "type": "n8n-nodes-base.switch",
+      "position": [
+        -528,
+        -176
+      ],
+      "typeVersion": 3.2,
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "9d1e6fa0-f389-43e1-af12-6a8a444cceab",
+              "name": "msg",
+              "value": "={{ $json.output }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f47586e3-c7e7-4709-8f20-80f9c7412741",
+      "name": "Mother4",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -288,
+        -192
+      ],
+      "typeVersion": 3.4
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "prompt": "={{ $json.output }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        464,
+        -160
+      ],
+      "id": "cf901192-faa5-4d6c-a78b-f0b2416fe665",
+      "name": "OpenAI",
+      "credentials": {
+        "openAiApi": {
+          "id": "VqT4C9Fo99KKwnxl",
+          "name": "optimati"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "binaryToPropery",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.extractFromFile",
+      "typeVersion": 1,
+      "position": [
+        704,
+        -160
+      ],
+      "id": "d3d8e479-3436-4926-8b4a-694c2ec4bdf0",
+      "name": "Extract from File"
+    },
+    {
+      "parameters": {
+        "amount": "={{ Math.floor(Math.random() * 1741) + 60 }}"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -1328,
+        -160
+      ],
+      "id": "9265bf71-38b6-4b93-8820-8fa0b3f0e2ef",
+      "name": "Wait",
+      "webhookId": "0c44cc13-9550-4f6c-a54f-2cf3f5657486",
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1.1,
+      "position": [
+        -800,
+        48
+      ],
+      "id": "aa10f1b5-7912-45df-aecb-2e271df768b4",
+      "name": "Think"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1.1,
+      "position": [
+        224,
+        -16
+      ],
+      "id": "473f6bff-83f8-4584-9c4e-5354fa51a4e4",
+      "name": "Think1"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-pro",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -1152,
+        48
+      ],
+      "id": "2a493aea-e457-4d7d-83ce-370402efcf3d",
+      "name": "Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "NymvM2XxUX5ECFUy",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        -1040,
+        48
+      ],
+      "id": "ac1a8d6a-5bd9-4d9e-b06d-1b4d4ab136d5",
+      "name": "Groq",
+      "credentials": {
+        "groqApi": {
+          "id": "sxj77CmJxdJgbriS",
+          "name": "Optima"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": " ",
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "=# 👤 Papel: Engenheiro de Prompt Visual\n\nVocê é um especialista em traduzir conceitos e emoções em prompts detalhados para modelos de geração de imagem (como DALL-E, Midjourney). Sua missão é converter uma mensagem de texto em uma descrição visual rica e evocativa.\n\n# 🎯 Missão Principal\nAnalisar a mensagem fornecida e gerar um **prompt de imagem** em inglês, detalhado e pronto para ser usado, que capture a essência da mensagem.\n\n---\n\n## 📝 Mensagem a ser Visualizada\n*\"{{ $json.msg }}\"*\n\n---\n\n## 🎨 Diretrizes de Estilo e Composição (Regras Obrigatórias)\n\n1.  **Tradução Emocional:** O prompt deve focar em capturar o **sentimento** central da mensagem. Use palavras que descrevam a atmosfera (ex: \"serene\", \"joyful\", \"melancholic\", \"powerful\").\n\n2.  **Paleta de Cores:** Descreva a paleta de cores de forma explícita.\n    * Utilize **tons vibrantes e saturados** (ex: \"vibrant oranges\", \"deep blues\") para conceitos de energia, motivação ou alegria.\n    * Utilize **cores suaves e pastéis** (ex: \"soft lavender\", \"warm beige\") para temas de paz, conforto ou reflexão.\n\n3.  **Elementos e Simbolismo:** Pense metaforicamente. Transforme as ideias da mensagem em símbolos visuais.\n    * *Exemplo:* Se a mensagem fala sobre \"superar desafios\", o prompt pode incluir \"a lone figure climbing a stylized mountain path under a dramatic sky\".\n\n4.  **Composição e Foco:** Defina o foco principal da cena. O que deve chamar a atenção do espectador? Descreva o enquadramento (ex: \"close-up shot\", \"wide-angle landscape\").\n\n5.  **Nível de Detalhe:** Seja descritivo. Adicione detalhes sobre iluminação (\"soft morning light\", \"dramatic cinematic lighting\"), texturas (\"rough stone texture\", \"smooth silk fabric\") e o ambiente geral para criar uma composição memorável.\n\n6.  **Restrição de Figuras Humanas:** Se a mensagem sugerir a presença de pessoas, o prompt gerado **NÃO DEVE** incluir termos que descrevam pessoas (ex: 'old man', 'elderly woman', 'wrinkles').\n\n---\n\n## 📝 Formato de Saída (Regra Inviolável)\n\n- Sua resposta final deve conter **APENAS e SOMENTE** o texto do prompt de imagem em inglês.\n- **NÃO** inclua frases como \"Aqui está o prompt:\", \"Claro, aqui vai:\", ou qualquer outro tipo de introdução ou explicação. Sua saída deve ser o prompt puro, pronto para ser copiado e colado no gerador de imagem.\n\n*use a tool think para pensar se o prompt para a imagem está adequado*."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -48,
+        -240
+      ],
+      "id": "ece7e888-4937-4009-b5c6-78b61876c527",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "modelName": "models/gemini-2.5-pro",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -112,
+        -16
+      ],
+      "id": "1196fb75-f2d4-4ab3-875e-cfcd1da624f1",
+      "name": "Google",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "NymvM2XxUX5ECFUy",
+          "name": "Google Gemini(PaLM) Api account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-120b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        0,
+        -16
+      ],
+      "id": "baf7d14a-a478-48a4-941f-a1ddd0598754",
+      "name": "Groq1",
+      "credentials": {
+        "groqApi": {
+          "id": "sxj77CmJxdJgbriS",
+          "name": "Optima"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "{{ $json.output }}",
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        112,
+        -16
+      ],
+      "id": "a23c9e27-afae-439b-80ab-a6ffe3dff446",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "{{ $json.output }}",
+        "contextWindowLength": 20
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -928,
+        48
+      ],
+      "id": "c8c0882b-0428-4aa6-b12e-41920ed06e57",
+      "name": "Simple Memory1"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "10 21 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1568,
+        -160
+      ],
+      "id": "1e8a5bab-310d-4ebe-851a-12d89b1677ca",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://evo2.optimati.shop/message/sendMedia/arthur",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "evolutionApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "number",
+              "value": "5561986750777@s.whatsapp.net"
+            },
+            {
+              "name": "mediatype",
+              "value": "image"
+            },
+            {
+              "name": "caption",
+              "value": "={{ $('Mother4').item.json.msg }}"
+            },
+            {
+              "name": "media",
+              "value": "={{ $json.data }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        944,
+        -160
+      ],
+      "id": "5db46d0e-71ed-4612-b030-8d111746cbaa",
+      "name": "HTTP Request",
+      "credentials": {
+        "evolutionApi": {
+          "id": "baDZxtOPNIlQa5SD",
+          "name": "chave_arthur_dev"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": " ",
+        "needsFallback": true,
+        "options": {
+          "systemMessage": "=# 👤 Persona e Contexto\nVocê é Arthur, um filho dedicado e amoroso. Sua única função é escrever uma mensagem de boa noite para sua amada mãe.\n\n# 🎯 Missão Principal\nGerar **APENAS e SOMENTE** o texto final da mensagem de boa noite. Não inclua saudações para mim, explicações sobre o que você fez, ou qualquer texto que não seja parte da mensagem a ser enviada para a mãe.\n\n# 📜 Regras de Conteúdo\n1.  **Tom e Estilo:** A mensagem deve ser curta, transmitindo profundo amor, carinho, respeito e confiança.\n2.  **Apelidos Carinhosos:** Utilize, de forma natural e alternada, um dos seguintes apelidos: \"Mae\"\n3.  **Tratamento Formal:** Sempre se refira a ela como \"a Senhora\" para demonstrar respeito.\n4.  **Versículo Bíblico:** Inclua um versículo bíblico \"diferente\" a cada vez, usando o \"NOVO TESTAMENTO\" e os livros de \"Salmos\"; \"Provérbios\"; \"Eclesiastes\"; e \"outros livros inspiradores\" que seja apropriado para uma mensagem carinhosa de \"boa noite\"; \"desncaso\"; \"conforto\". Após o versículo, explique brevemente (em uma frase) o sentimento que ele transmite (ex: conforto, paz, proteção).\n5. \"NÃO REPITA O VERSÍCULO\"\n6.  **Emojis:** Use emojis de forma carinhosa para enriquecer a mensagem (ex: 🙏, ❤️, ✨, 🌙).\n\n# ✨ Estilo e Variação\n- **Criatividade:** Evite repetir as mesmas frases todas as vezes. Varie a forma como expressa seu amor e gratidão em cada mensagem.\n- **Aleatoriedade:** O versículo bíblico escolhido deve ser diferente a cada execução para não se tornar repetitivo.\n\n# 📝 Formato de Saída (Regra Inviolável)\n- Sua resposta final deve conter **APENAS** o texto da mensagem.\n- **NUNCA** inclua frases como \"Aqui está a mensagem:\", \"Claro, aqui vai:\", ou qualquer outro tipo de introdução.\n- A sua saída deve ser exatamente o que Tiago enviaria no WhatsApp.\n- *use a tool think para pensar se a mensagem está adequada*."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        -1088,
+        -160
+      ],
+      "id": "40d6b2ba-2dec-4050-9687-63dd33a2e2db",
+      "name": "agente_arthur"
+    }
+  ],
+  "connections": {
+    "Sorteia Formato (Mãe)": {
+      "main": [
+        [
+          {
+            "node": "Switch Formato (Mãe)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch Formato (Mãe)": {
+      "main": [
+        [
+          {
+            "node": "Mother4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mother4": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI": {
+      "main": [
+        [
+          {
+            "node": "Extract from File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "agente_arthur",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "agente_arthur",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "agente_arthur",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "agente_arthur",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "OpenAI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "agente_arthur",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "agente_arthur": {
+      "main": [
+        [
+          {
+            "node": "Sorteia Formato (Mãe)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {},
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "712414ff6d793a65323a08bd79078bc0b1239986dc37dbcb49223d7332be3a0e"
+  }
+}
