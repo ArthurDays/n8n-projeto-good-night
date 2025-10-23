@@ -12,3 +12,6 @@ node_modules/
 
 # Logs de debug
 *.log
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md

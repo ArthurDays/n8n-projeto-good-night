@@ -1,4 +1,4 @@
-\# 💌 Projeto "Boa Noite, Mãe": Automação n8n com IA
+#  Projeto "Boa Noite, Mãe": Automação n8n com IA
 
 
 
@@ -6,23 +6,13 @@ Um workflow de automação n8n projetado para enviar uma mensagem de boa noite �
 
 
 
-!\[n8n](https://img.shields.io/badge/n8n-12B886?style=for-the-badge\&logo=n8n\&logoColor=white)
-
-!\[OpenAI](https://img.shields.io/badge/OpenAI-412991?style=for-the-badge\&logo=openai\&logoColor=white)
-
-!\[Google Gemini](https://img.shields.io/badge/Google\_Gemini-4285F4?style=for-the-badge\&logo=google\&logoColor=white)
-
-!\[Groq](https://img.shields.io/badge/Groq-000000?style=for-the-badge\&logo=groq\&logoColor=white)
-
-!\[WhatsApp](https://img.shields.io/badge/WhatsApp-25D366?style=for-the-badge\&logo=whatsapp\&logoColor=white)
-
 
 
 ---
 
 
 
-\## 🎯 Objetivo do Projeto
+## 🎯 Objetivo do Projeto
 
 
 
@@ -34,7 +24,7 @@ O objetivo deste fluxo é enviar uma mensagem de boa noite para a mãe do autor,
 
 
 
-\## 🤖 Como Funciona: O Fluxo da Automação
+## 🤖 Como Funciona: O Fluxo da Automação
 
 
 
@@ -88,7 +78,7 @@ O workflow é executado em várias etapas sequenciais:
 
 
 
-\## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 
 
@@ -132,7 +122,7 @@ Para replicar este workflow, você precisará:
 
 
 
-\## 📁 Estrutura do Repositório
+## 📁 Estrutura do Repositório
 
 
 
@@ -146,7 +136,7 @@ Para replicar este workflow, você precisará:
 
 
 
-\## 👨‍💻 Autor
+## 👨‍💻 Autor
 
 
 
@@ -154,5 +144,5 @@ Para replicar este workflow, você precisará:
 
 &nbsp;   \* GitHub: `https://github.com/ArthurDays`
 
-&nbsp;   \* LinkedIn: `https://www.linkedin.com/in/SEU-PERFIL-AQUI/` \*(<-- Altere para o seu link!)\*
+&nbsp;   \* LinkedIn: `www.linkedin.com/in/arthur-days` \*
 
