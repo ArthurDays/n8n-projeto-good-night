@@ -32,49 +32,49 @@ O workflow é executado em várias etapas sequenciais:
 
 
 
-1\.  \*\*Agendamento (Schedule Trigger):\*\* O workflow é iniciado automaticamente todos os dias às 21:10 (CRON: `10 21 \* \* \*`).
+1.Agendamento (Schedule Trigger): O workflow é iniciado automaticamente todos os dias às 21:10 (CRON: `10 21 \* \* \*`).
 
 
 
-2\.  \*\*Geração de Texto (AI Agent 1 - `agente\_arthur`):\*\*
+2.  Geração de Texto (AI Agent 1 - `agente\_arthur`):
 
-&nbsp;   \* Um Agente de IA (usando Gemini ou Groq) é acionado com uma persona de "filho dedicado e amoroso".
+&nbsp;   Um Agente de IA (usando Gemini ou Groq) é acionado com uma persona de "filho dedicado e amoroso".
 
-&nbsp;   \* O prompt exige que a IA gere uma mensagem curta, carinhosa, com tratamento respeitoso ("a Senhora") e que inclua um \*\*versículo bíblico diferente\*\* (de Salmos, Provérbios, etc.) a cada dia, seguido de uma breve explicação do sentimento do versículo.
+&nbsp;   O prompt exige que a IA gere uma mensagem curta, carinhosa, com tratamento respeitoso ("a Senhora") e que inclua um versículo bíblico diferente\ (de Salmos, Provérbios, etc.) a cada dia, seguido de uma breve explicação do sentimento do versículo.
 
-&nbsp;   \* O agente usa memória (`Simple Memory1`) para garantir que os versículos não sejam repetidos.
-
-
-
-3\.  \*\*Armazenamento (Set):\*\* A mensagem de texto gerada é armazenada na variável `msg`.
+&nbsp;   O agente usa memória (`Simple Memory1`) para garantir que os versículos não sejam repetidos.
 
 
 
-4\.  \*\*Geração de Prompt de Imagem (AI Agent 2 - `AI Agent`):\*\*
-
-&nbsp;   \* A mensagem de texto (`msg`) é passada para um segundo Agente de IA, que atua como um "Engenheiro de Prompt Visual".
-
-&nbsp;   \* Este agente tem a missão de traduzir o \*sentimento\* da mensagem de boa noite em um \*prompt de imagem\* detalhado e artístico em inglês, focando em paleta de cores, simbolismo e composição.
+3.   Armazenamento (Set): A mensagem de texto gerada é armazenada na variável `msg`.
 
 
 
-5\.  \*\*Geração de Imagem (OpenAI):\*\*
+4.  Geração de Prompt de Imagem (AI Agent 2 - `AI Agent`):
 
-&nbsp;   \* O prompt de imagem em inglês é enviado para a API da OpenAI (DALL-E) para gerar uma imagem única que corresponda visualmente ao texto.
+&nbsp;   A mensagem de texto (`msg`) é passada para um segundo Agente de IA, que atua como um "Engenheiro de Prompt Visual".
+
+&nbsp;   Este agente tem a missão de traduzir o sentimento da mensagem de boa noite em um prompt de imagem detalhado e artístico em inglês, focando em paleta de cores, simbolismo e composição.
 
 
 
-6\.  \*\*Formatação e Envio (Extract from File \& HTTP Request):\*\*
+5.  Geração de Imagem (OpenAI):
 
-&nbsp;   \* A imagem gerada (binária) é convertida para base64 (`Extract from File`).
+&nbsp;    O prompt de imagem em inglês é enviado para a API da OpenAI (DALL-E) para gerar uma imagem única que corresponda visualmente ao texto.
 
-&nbsp;   \* Um nó `HTTP Request` envia a mensagem final para a API do Evolution (um gateway de WhatsApp).
 
-&nbsp;   \* O destinatário recebe uma única mensagem de WhatsApp contendo:
 
-&nbsp;       \* A \*\*imagem gerada\*\* como mídia.
+6.  Formatação e Envio (Extract from File \& HTTP Request):
 
-&nbsp;       \* O \*\*texto original\*\* de boa noite como legenda da imagem.
+&nbsp;    A imagem gerada (binária) é convertida para base64 (`Extract from File`).
+
+&nbsp;    Um nó `HTTP Request` envia a mensagem final para a API do Evolution (um gateway de WhatsApp).
+
+&nbsp;    O destinatário recebe uma única mensagem de WhatsApp contendo:
+
+&nbsp;        A imagem gerada como mídia.
+
+&nbsp;        O texto original de boa noite como legenda da imagem.
 
 
 
@@ -82,17 +82,17 @@ O workflow é executado em várias etapas sequenciais:
 
 
 
-\* \*\*n8n:\*\* Plataforma de automação (low-code) para orquestrar o fluxo.
+n8n: Plataforma de automação (low-code) para orquestrar o fluxo.
 
-\* \*\*Google Gemini \& Groq:\*\* Modelos de Linguagem (LLMs) para a geração de texto criativo.
+Google Gemini \& Groq:\ Modelos de Linguagem (LLMs) para a geração de texto criativo.
 
-\* \*\*OpenAI (DALL-E):\*\* Modelo de Geração de Imagem para a criação da arte visual.
+OpenAI (DALL-E): Modelo de Geração de Imagem para a criação da arte visual.
 
-\* \*\*Evolution API:\*\* Gateway de WhatsApp para o envio das mensagens.
+Evolution API: Gateway de WhatsApp para o envio das mensagens.
 
 
 
-\## 🚀 Como Usar este Projeto
+## 🚀 Como Usar este Projeto
 
 
 
@@ -100,25 +100,25 @@ Para replicar este workflow, você precisará:
 
 
 
-1\.  \*\*Importar o Workflow:\*\* Baixe o arquivo `workflow.json` deste repositório e importe-o para a sua instância n8n.
+1.  Importar o Workflow: Baixe o arquivo `workflow.json` deste repositório e importe-o para a sua instância n8n.
 
-2\.  \*\*Configurar Credenciais:\*\* Você precisará criar e configurar as seguintes credenciais no seu n8n:
+2.  Configurar Credenciais: Você precisará criar e configurar as seguintes credenciais no seu n8n:
 
-&nbsp;   \* `Google Gemini API`
+&nbsp;    `Google Gemini API`
 
-&nbsp;   \* `Groq API`
+&nbsp;    `Groq API`
 
-&nbsp;   \* `OpenAI API`
+&nbsp;    `OpenAI API`
 
-&nbsp;   \* Credenciais da sua `Evolution API` (ou outro gateway de WhatsApp).
+&nbsp;    Credenciais da sua `Evolution API` (ou outro gateway de WhatsApp).
 
-3\.  \*\*Personalizar Nós:\*\*
+3.  Personalizar Nós:
 
-&nbsp;   \* \*\*Schedule Trigger (`1e8a5...`):\*\* Altere o horário do CRON conforme sua necessidade.
+&nbsp;  Schedule Trigger (`1e8a5...`): Altere o horário do CRON conforme sua necessidade.
 
-&nbsp;   \* \*\*agente\_arthur (`40d6b...`):\*\* Personalize o \*system message\* com a persona e as regras que você desejar.
+&nbsp;   agente\_arthur (`40d6b...`): Personalize o system message com a persona e as regras que você desejar.
 
-&nbsp;   \* \*\*HTTP Request (`5db46d...`):\*\* Altere a `URL` da sua API de WhatsApp e o `number` (número de telefone) de destino.
+&nbsp;   HTTP Request (`5db46d...`): Altere a `URL` da sua API de WhatsApp e o `number` (número de telefone) de destino.
 
 
 
@@ -126,13 +126,13 @@ Para replicar este workflow, você precisará:
 
 
 
-\* \*\*`workflow.json`\*\*: O arquivo de exportação do n8n contendo toda a lógica do fluxo de trabalho.
+`workflow.json`: O arquivo de exportação do n8n contendo toda a lógica do fluxo de trabalho.
 
-\* \*\*`README.md`\*\*: Esta documentação.
+`README.md`\: Esta documentação.
 
-\* \*\*`.gitignore`\*\*: Arquivo para ignorar arquivos locais do n8n.
+`.gitignore`: Arquivo para ignorar arquivos locais do n8n.
 
-\* \*\*`LICENSE`\*\*: Licença MIT.
+`LICENSE`: Licença MIT.
 
 
 
@@ -140,9 +140,9 @@ Para replicar este workflow, você precisará:
 
 
 
-\* \*\*Arthur\*\*
+ArthurDays
 
-&nbsp;   \* GitHub: `https://github.com/ArthurDays`
+&nbsp;    GitHub: `https://github.com/ArthurDays`
 
-&nbsp;   \* LinkedIn: `www.linkedin.com/in/arthur-days` \*
+&nbsp;    LinkedIn: `www.linkedin.com/in/arthur-days` 
 
