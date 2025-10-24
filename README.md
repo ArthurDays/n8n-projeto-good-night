@@ -2,7 +2,7 @@
 
 
 
-Um workflow de automação n8n projetado para enviar uma mensagem de boa noite única e carinhosa, acompanhada de uma imagem gerada por IA, para uma pessoa especial todos os dias.
+Um workflow de automaçao n8n projetado para enviar uma mensagem de boa noite única e carinhosa, acompanhada de uma imagem gerada por IA, para uma pessoa especial todos os dias.
 
 
 
