@@ -143,8 +143,8 @@
       "name": "OpenAI",
       "credentials": {
         "openAiApi": {
-          "id": "VqT4C9Fo99KKwnxl",
-          "name": "optimati"
+          "id": "REMOVIDO_PREENCHA_ID_DA_CREDENCIAL",
+          "name": "REMOVIDO_NOME_DA_CREDENCIAL_OPENAI"
         }
       }
     },
@@ -174,7 +174,7 @@
       ],
       "id": "9265bf71-38b6-4b93-8820-8fa0b3f0e2ef",
       "name": "Wait",
-      "webhookId": "0c44cc13-9550-4f6c-a54f-2cf3f5657486",
+      "webhookId": "REMOVIDO_WEBHOOK_ID_SE_HOUVER",
       "disabled": true
     },
     {
@@ -214,8 +214,8 @@
       "name": "Gemini",
       "credentials": {
         "googlePalmApi": {
-          "id": "NymvM2XxUX5ECFUy",
-          "name": "Google Gemini(PaLM) Api account 3"
+          "id": "REMOVIDO_PREENCHA_ID_DA_CREDENCIAL",
+          "name": "REMOVIDO_NOME_DA_CREDENCIAL_GEMINI"
         }
       }
     },
@@ -234,8 +234,8 @@
       "name": "Groq",
       "credentials": {
         "groqApi": {
-          "id": "sxj77CmJxdJgbriS",
-          "name": "Optima"
+          "id": "REMOVIDO_PREENCHA_ID_DA_CREDENCIAL",
+          "name": "REMOVIDO_NOME_DA_CREDENCIAL_GROQ"
         }
       }
     },
@@ -272,8 +272,8 @@
       "name": "Google",
       "credentials": {
         "googlePalmApi": {
-          "id": "NymvM2XxUX5ECFUy",
-          "name": "Google Gemini(PaLM) Api account 3"
+          "id": "REMOVIDO_PREENCHA_ID_DA_CREDENCIAL",
+          "name": "REMOVIDO_NOME_DA_CREDENCIAL_GEMINI"
         }
       }
     },
@@ -292,8 +292,8 @@
       "name": "Groq1",
       "credentials": {
         "groqApi": {
-          "id": "sxj77CmJxdJgbriS",
-          "name": "Optima"
+          "id": "REMOVIDO_PREENCHA_ID_DA_CREDENCIAL",
+          "name": "REMOVIDO_NOME_DA_CREDENCIAL_GROQ"
         }
       }
     },
@@ -350,7 +350,7 @@
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evo2.optimati.shop/message/sendMedia/arthur",
+        "url": "REMOVIDO_PREENCHA_A_URL_DA_SUA_API_WHATSAPP",
         "authentication": "predefinedCredentialType",
         "nodeCredentialType": "evolutionApi",
         "sendHeaders": true,
@@ -367,7 +367,7 @@
           "parameters": [
             {
               "name": "number",
-              "value": "5561986750777@s.whatsapp.net"
+              "value": "REMOVIDO_PREENCHA_O_NUMERO_DE_DESTINO"
             },
             {
               "name": "mediatype",
@@ -395,8 +395,8 @@
       "name": "HTTP Request",
       "credentials": {
         "evolutionApi": {
-          "id": "baDZxtOPNIlQa5SD",
-          "name": "chave_arthur_dev"
+          "id": "REMOVIDO_PREENCHA_ID_DA_CREDENCIAL",
+          "name": "REMOVIDO_NOME_DA_CREDENCIAL_EVOLUTION"
         }
       }
     },
@@ -611,6 +611,6 @@
   "pinData": {},
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "712414ff6d793a65323a08bd79078bc0b1239986dc37dbcb49223d7332be3a0e"
+    "instanceId": "REMOVIDO_ID_DA_INSTANCIA_PARA_PUBLICACAO"
   }
 }
