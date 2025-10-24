@@ -1,5 +1,10 @@
 #  Projeto "Boa Noite, Mãe": Automação n8n com IA
 
+## 📊 Diagrama do Fluxo de Trabalho
+
+Abaixo está um diagrama visual do fluxo de trabalho completo, desde o agendamento diário até o envio da mensagem final via WhatsApp.
+
+![Diagrama do fluxo de trabalho n8n](assets/diagrama_fluxo.png)
 
 
 Um workflow de automaçao n8n projetado para enviar uma mensagem de boa noite única e carinhosa, acompanhada de uma imagem gerada por IA, para uma pessoa especial todos os dias.
