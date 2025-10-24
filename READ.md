@@ -8,7 +8,7 @@ Abaixo está um diagrama visual do fluxo de trabalho completo, desde o agendamen
 ![Diagrama do fluxo de trabalho n8n](assets/workflow-diagrama.png)
 
 
-Um workflow de automação n8n projetado para enviar uma mensagem de boa noite única e carinhosa, acompanhada de uma imagem gerada por IA, para uma pessoa especial todos os dias.
+Um workflow de automação n8n projetado para enviar uma mensagem de boa noite única e carinhosa, acompanhada de uma imagem gerada por IA, para una pessoa especial todos os dias.
 
 
 
